@@ -8,6 +8,9 @@ from apps.schema import UserCreate, UserUpdate
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
 
 @app.get("/users/")
 def get_all_users(db: Session = Depends(get_db)):
